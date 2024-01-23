@@ -200,7 +200,10 @@ const userAccountDetails = asyncHandler(async (req, res) => {
     .json(
       new ApiResponse(
         StatusCodes.OK,
-        user,
+        {
+          user,
+          newToken
+        },
         "Account details updated successfully"
       )
     );
