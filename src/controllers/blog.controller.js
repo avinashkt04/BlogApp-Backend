@@ -37,7 +37,7 @@ const createBlog = asyncHandler(async (req, res) => {
 
   const blog = await Blog.create({
     title,
-    featuredImage: featuredImage?.url,
+    featuredImage: featuredImage?.secure_url,
     content,
     status: "active",
     author: req.user,
@@ -108,7 +108,7 @@ const editBlog = asyncHandler(async (req, res) => {
   const updatedBlogData = {
     ...(title && { title }),
     ...(content && { content }),
-    ...(featuredImage && { featuredImage: featuredImage.url }),
+    ...(featuredImage && { featuredImage: featuredImage.secure_url }),
     ...(status && { status }),
   };
 
